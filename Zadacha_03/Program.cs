@@ -15,7 +15,7 @@ int[,] getMatrix(int row, int column)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = rng.Next(0, 5);
+            array[i, j] = rng.Next(1, 6);
         }
     }
     return array;
@@ -35,21 +35,18 @@ void printMatrix(int[,] array)
 
 void columnMean(int[,] array)
 {
-
     for (int i = 0; i < array.GetLength(1); i++)
     {
-        int count = 0;
+        double count = 0;
         for (int j = 0; j < array.GetLength(0); j++)
         {
             count += array[j, i];
         }
-
-        System.Console.Write("[" + count + "]" + "\t");
+        System.Console.Write("[" + count/array.GetLength(0) + "]" + "\t");
     }
-
 }
 
-int[,] matrix = getMatrix(5, 5);
+int[,] matrix = getMatrix(4, 5);
 printMatrix(matrix);
 System.Console.WriteLine();
 columnMean(matrix);
